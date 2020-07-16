@@ -7,7 +7,7 @@ const messageResponse = {
     TOO_MANY_REQUESTS: 'Você atingiu seu limite de taxa por minuto ou por dia',
 };
 
-module.exports = {
+export default {
     async index(req, res) {
         const { TIMES_API_KEY } = process.env;
         const { qtdNews, page } = req.query;
