@@ -9,6 +9,12 @@ class Routes {
     }
 
     routesNotSecurity() {
+        this.routes.get('/', (req, res) =>
+            res.json({
+                message:
+                    'Wellcome to News API, development by Lucas Vanni for EZDevs Challange',
+            })
+        );
         this.routes.get('/news', NewsController.index);
     }
 }
