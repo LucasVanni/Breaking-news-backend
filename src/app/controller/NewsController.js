@@ -1,3 +1,4 @@
+/* eslint-disable array-callback-return */
 import axios from 'axios';
 import 'dotenv/config';
 
@@ -38,7 +39,21 @@ export default {
                 message: messageResponse.TOO_MANY_REQUESTS,
             });
         } else {
-            res.status(200).json(news.data);
+            const { copyright, results } = news.data;
+
+            const resultMap = results.map((item, id) => {
+                return {
+                    id,
+                    title: item.title,
+                    abstract: item.abstract,
+                    updated_date: item.updated_date,
+                    multimedia: item.multimedia,
+                    byline: item.byline,
+                    url: item.url,
+                };
+            });
+
+            res.status(200).json({ copyright, resultMap });
         }
 
         return res;
