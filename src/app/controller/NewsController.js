@@ -21,7 +21,7 @@ export default {
         }
 
         const valueLimit = qtdNews;
-        const valueOffset = 500 - qtdNews * page;
+        const valueOffset = 120 - qtdNews * page;
         const URL = `https://api.nytimes.com/svc/news/v3/content/all/all.json`;
         const PARAMS = `?api-key=${TIMES_API_KEY}&limit=${valueLimit}&offset=${valueOffset}`;
         const news = await axios.get(URL + PARAMS);
